@@ -1,0 +1,37 @@
+#Pipeline Aggregation Stages
+#管道聚集状态
+<ol>
+	<li>
+		<ul>
+			<li>$collStats:查询collection状态</li>
+			<li><pre>{$collStats:{latencyStats:{histograms:true}}}</pre></li>
+		</ul>
+		<ul>
+			<li>$indexStats:查询索引状态</li>
+			<li><pre>{$indexStats:{}}</pre></li>
+		</ul>
+		<ul>
+			<li>$project:查询显示字段</li>
+			<li><pre>{$project:{<conditions>:1}}</pre></li>
+		</ul>
+		<ul>
+			<li>$match:根据条件筛选</li>
+			<li><pre>{$match:{<query>}}</pre></li>
+		</ul>
+		<ul>
+			<li>$redact:根据文档存储限制文档内容</li>
+			<li><pre>{$redact:{$cond:{if:{<query>},then:"$$[PRUNE|DESCEND|KEEP]",else:"$$[PRUNE|DESCEND|KEEP]"}}}</pre></li>
+				<li>
+					<ul>
+						<li>PRUNE正匹配</li>
+						<li>DESCEND逆匹配</li>
+						<li>KEEP全匹配</li>
+					</ul>
+				</li>
+		</ul>
+		<ul>
+			<li>$limit:限制记录条数</li>
+			<li>{$limit:<Number>}</li>
+		</ul>
+	</li>
+</ol>
