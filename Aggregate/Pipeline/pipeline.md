@@ -31,7 +31,19 @@
 		</ul>
 		<ul>
 			<li>$limit:限制记录条数</li>
-			<li>{$limit:<Number>}</li>
+			<li><pre>{$limit:<Number>}</pre></li>
+		</ul>
+		<ul>
+			<li>$skip:跳过记录数</li>
+			<li><pre>{$skip:<Number>}</pre></li>
+		</ul>
+		<ul>
+			<li>$unwind:展开数据数据</li>
+			<li><pre>{$unwind:{path:<field>,includeArrayIndex:<arrayfield>,preserveNullAndEmptyArrays:true}}</pre></li>
+		</ul>
+		<ul>
+			<li>$group:分组查询数据</li>
+			<li><pre>{$group:{_id:<expression>,<field1>:{<accumulator1>:<expression1>,...}>}}</pre></li>
 		</ul>
 	</li>
 </ol>
