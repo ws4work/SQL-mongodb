@@ -4,20 +4,36 @@
 	<li>
 		<ul>
 			<li>$collStats:查询collection状态</li>
-			<li><pre>{$collStats:{latencyStats:{histograms:true}}}</pre></li>
+			<li><pre>{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$indexStats:查询索引状态</li>
 			<li><pre>{$indexStats:{}}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$project:查询显示字段</li>
-			<li><pre>{$project:{<conditions>:1}}</pre></li>
+			<li><pre>{$project:{<specification(s)>}}</pre></li>
+			<li>
+				<ul>
+					<li><pre><field>: <1 or true></pre></li>
+					<li><pre>_id: <0 or false></pre></li>
+					<li><pre><field>: <expression></pre></li>
+					<li><pre><field>:<0 or false></pre></li>
+				</ul>
+			</li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$match:根据条件筛选</li>
 			<li><pre>{$match:{<query>}}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$redact:根据文档存储限制文档内容</li>
 			<li><pre>{$redact:{$cond:{if:{<query>},then:"$$[PRUNE|DESCEND|KEEP]",else:"$$[PRUNE|DESCEND|KEEP]"}}}</pre></li>
@@ -29,21 +45,113 @@
 					</ul>
 				</li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$limit:限制记录条数</li>
-			<li><pre>{$limit:<Number>}</pre></li>
+			<li><pre>{$limit:<positive integer>}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$skip:跳过记录数</li>
-			<li><pre>{$skip:<Number>}</pre></li>
+			<li><pre>{$skip:<positive integer>}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$unwind:展开数据数据</li>
-			<li><pre>{$unwind:{path:<field>,includeArrayIndex:<arrayfield>,preserveNullAndEmptyArrays:true}}</pre></li>
+			<li><pre>{$unwind:{path:<field path>,includeArrayIndex:<string>,preserveNullAndEmptyArrays:<boolean>}}</pre></li>
 		</ul>
+	</li>
+	<li>
 		<ul>
 			<li>$group:分组查询数据</li>
-			<li><pre>{$group:{_id:<expression>,<field1>:{<accumulator1>:<expression1>,...}>}}</pre></li>
+			<li><pre>{$group:{_id:<expression>,<field1>:{<accumulator1>:<expression1>},...}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$sample:随机取样</li>
+			<li><pre>{$sample:{size:<positive integer>}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$sort:根据字段排序</li>
+			<li><pre>{$sort:{<field1>:<sort order>,<field2>:<sort order>...}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$geoNear:地图相关</li>
+			<li><pre></pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$lookup:外链接查询</li>
+			<li><pre>{$lookup:{from:<collection to join>,localField:<field from the input documents>,foreignField:<field from the documents of the"from"collection>,as:<output array field>}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$out:将查询结果输出到另一个新集合</li>
+			<li><pre>{$out:"<output-collection>"}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$facet:</li>
+			<li><pre>{$facet:{<outputField1>:[<stage1>,<stage2>,...],<outputField2>:[<stage1>,<stage2>,...],...}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$bucket:根据区间查询</li>
+			<li><pre>{$bucket:{groupBy:<expression>,boundaries:[<lowerbound1>,<lowerbound2>,...],default:<literal>,output:{<output1>:{<$accumulator expression>},...<outputN>:{<$accumulator expression>}}}}</pre></li>
+			<li>
+				<ul>
+					<li>boundaries:取值区间(含左边界不含右边界)</li>
+					<li>default:无值的默认值</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$bucketAuto:</li>
+			<li><pre>{$bucketAuto:{groupBy:<expression>,buckets:<number>,output:{<output1>:{<$accumulator expression>},...},granularity:<string>}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$sortByCount:</li>
+			<li><pre>{$sortByCount:<expression>}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$addFields:向数据中增加属性显示(无实际存储值)</li>
+			<li><pre>{$addFields:{<newField>:<expression>,...}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$replaceRoot:降低维度,显示子集</li>
+			<li><pre>{$replaceRoot:{newRoot:<replacementDocument>}}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$count:查询记录条数</li>
+			<li><pre>{$count:<string>}</pre></li>
+		</ul>
+	</li>
+	<li>
+		<ul>
+			<li>$graphLookup:</li>
+			<li><pre>{$graphLookup:{from:<collection>,startWith:<expression>,connectFromField:<string>,connectToField:<string>,as:<string>,maxDepth:<number>,depthField:<string>,restrictSearchWithMatch:<document>}}</pre></li>
 		</ul>
 	</li>
 </ol>
