@@ -16,7 +16,7 @@
 	<li>
 		<ul>
 			<li>$project:查询显示字段</li>
-			<li>{$project:{<specification(s)>}}</li>
+			<li>{$project:{&lt;specification(s)&gt;}}</li>
 			<li>
 				<ul>
 					<li><pre><field>: <1 or true></pre></li>
