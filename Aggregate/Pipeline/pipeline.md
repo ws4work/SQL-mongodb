@@ -4,7 +4,7 @@
 	<li>
 		<ul>
 			<li>$collStats:查询collection状态</li>
-			<li><pre>{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}</pre></li>
+			<li><{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}></li>
 		</ul>
 	</li>
 	<li>
