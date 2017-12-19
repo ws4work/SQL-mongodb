@@ -4,19 +4,19 @@
 	<li>
 		<ul>
 			<li>$collStats:查询collection状态</li>
-			<li><{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}></li>
+			<li>{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$indexStats:查询索引状态</li>
-			<li><pre>{$indexStats:{}}</pre></li>
+			<li>{$indexStats:{}}></li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$project:查询显示字段</li>
-			<li><pre>{$project:{<specification(s)>}}</pre></li>
+			<li>{$project:{<specification(s)>}}</li>
 			<li>
 				<ul>
 					<li><pre><field>: <1 or true></pre></li>
@@ -30,7 +30,7 @@
 	<li>
 		<ul>
 			<li>$match:根据条件筛选</li>
-			<li><pre>{$match:{<query>}}</pre></li>
+			<li>{$match:{<query>}}</li>
 		</ul>
 	</li>
 	<li>
