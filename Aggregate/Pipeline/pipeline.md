@@ -19,10 +19,10 @@
 			<li>{$project:{&lt;specification(s)&gt;}}</li>
 			<li>
 				<ul>
-					<li><pre><field>: <1 or true></pre></li>
-					<li><pre>_id: <0 or false></pre></li>
-					<li><pre><field>: <expression></pre></li>
-					<li><pre><field>:<0 or false></pre></li>
+					<li>&lt;field&gt;: &lt;1 or true&gt;</li>
+					<li>_id: &lt;0 or false&gt;</li>
+					<li>&lt;field&gt;: &lt;expression&gt;</li>
+					<li>&lt;field&gt;: &lt;0 or false&gt;</li>
 				</ul>
 			</li>
 		</ul>
@@ -30,13 +30,13 @@
 	<li>
 		<ul>
 			<li>$match:根据条件筛选</li>
-			<li>{$match:{<query>}}</li>
+			<li>{$match:&lt;query&gt;}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$redact:根据文档存储限制文档内容</li>
-			<li><pre>{$redact:{$cond:{if:{<query>},then:"$$[PRUNE|DESCEND|KEEP]",else:"$$[PRUNE|DESCEND|KEEP]"}}}</pre></li>
+			<li>{$redact:{$cond:{if:{&lt;query&gt;},then:"$$[PRUNE|DESCEND|KEEP]",else:"$$[PRUNE|DESCEND|KEEP]"}}}</li>
 				<li>
 					<ul>
 						<li>PRUNE正匹配</li>
@@ -49,67 +49,67 @@
 	<li>
 		<ul>
 			<li>$limit:限制记录条数</li>
-			<li><pre>{$limit:<positive integer>}</pre></li>
+			<li>{$limit:&lt;positive integer&gt;}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$skip:跳过记录数</li>
-			<li><pre>{$skip:<positive integer>}</pre></li>
+			<li>{$skip:&lt;positive integer&gt;}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$unwind:展开数据数据</li>
-			<li><pre>{$unwind:{path:<field path>,includeArrayIndex:<string>,preserveNullAndEmptyArrays:<boolean>}}</pre></li>
+			<li>{$unwind:{path:&lt;field path&gt;,includeArrayIndex:&lt;string&gt;,preserveNullAndEmptyArrays:&lt;boolean&gt;}}</pre></li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$group:分组查询数据</li>
-			<li><pre>{$group:{_id:<expression>,<field1>:{<accumulator1>:<expression1>},...}}</pre></li>
+			<li>{$group:{_id:&lt;expression&gt;,&lt;field1&gt;:{&lt;accumulator1&gt;:&lt;expression1&gt;},...}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$sample:随机取样</li>
-			<li><pre>{$sample:{size:<positive integer>}}</pre></li>
+			<li>{$sample:{size:&lt;positive integer&gt;}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$sort:根据字段排序</li>
-			<li><pre>{$sort:{<field1>:<sort order>,<field2>:<sort order>...}}</pre></li>
+			<li>{$sort:{&lt;field1&gt;:&lt;sort order&gt;,&lt;field2&gt;:&lt;sort order&gt;...}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$geoNear:地图相关</li>
-			<li><pre></pre></li>
+			<li></li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$lookup:外链接查询</li>
-			<li><pre>{$lookup:{from:<collection to join>,localField:<field from the input documents>,foreignField:<field from the documents of the"from"collection>,as:<output array field>}}</pre></li>
+			<li>{$lookup:{from:&lt;collection to join&gt;,localField:&lt;field from the input documents&gt;,foreignField:&lt;field from the documents of the"from"collection&gt;,as:&lt;output array field&gt;}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$out:将查询结果输出到另一个新集合</li>
-			<li><pre>{$out:"<output-collection>"}</pre></li>
+			<li>{$out:"&lt;output-collection&gt;"}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$facet:</li>
-			<li><pre>{$facet:{<outputField1>:[<stage1>,<stage2>,...],<outputField2>:[<stage1>,<stage2>,...],...}}</pre></li>
+			<li>{$facet:{&lt;outputField1&gt;:[&lt;stage1&gt;,&lt;stage2&gt;,...],&lt;outputField2&gt;:[&lt;stage1&gt;,&lt;stage2&gt;,...],...}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$bucket:根据区间查询</li>
-			<li><pre>{$bucket:{groupBy:<expression>,boundaries:[<lowerbound1>,<lowerbound2>,...],default:<literal>,output:{<output1>:{<$accumulator expression>},...<outputN>:{<$accumulator expression>}}}}</pre></li>
+			<li>{$bucket:{groupBy:&lt;expression&gt;,boundaries:[&lt;lowerbound1&gt;,&lt;lowerbound2&gt;,...],default:&lt;literal&gt;,output:{&lt;output1&gt;:{&lt;$accumulator expression&gt;},...&lt;outputN&gt;:{&lt;$accumulator expression&gt;}}}}</li>
 			<li>
 				<ul>
 					<li>boundaries:取值区间(含左边界不含右边界)</li>
@@ -121,37 +121,37 @@
 	<li>
 		<ul>
 			<li>$bucketAuto:</li>
-			<li><pre>{$bucketAuto:{groupBy:<expression>,buckets:<number>,output:{<output1>:{<$accumulator expression>},...},granularity:<string>}}</pre></li>
+			<li>{$bucketAuto:{groupBy:&lt;expression&gt;,buckets:&lt;number&gt;,output:{&lt;output1&gt;:{&lt;$accumulator expression&gt;},...},granularity:&lt;string&gt;}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$sortByCount:</li>
-			<li><pre>{$sortByCount:<expression>}</pre></li>
+			<li>{$sortByCount:&lt;expression&gt;}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$addFields:向数据中增加属性显示(无实际存储值)</li>
-			<li><pre>{$addFields:{<newField>:<expression>,...}}</pre></li>
+			<li>{$addFields:{&lt;newField&gt;:&lt;expression&gt;,...}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$replaceRoot:降低维度,显示子集</li>
-			<li><pre>{$replaceRoot:{newRoot:<replacementDocument>}}</pre></li>
+			<li>{$replaceRoot:{newRoot:&lt;replacementDocument&gt;}}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$count:查询记录条数</li>
-			<li><pre>{$count:<string>}</pre></li>
+			<li>{$count:&lt;string&gt;}</li>
 		</ul>
 	</li>
 	<li>
 		<ul>
 			<li>$graphLookup:</li>
-			<li><pre>{$graphLookup:{from:<collection>,startWith:<expression>,connectFromField:<string>,connectToField:<string>,as:<string>,maxDepth:<number>,depthField:<string>,restrictSearchWithMatch:<document>}}</pre></li>
+			<li>{$graphLookup:{from:&lt;collection&gt;,startWith:&lt;expression&gt;,connectFromField:&lt;string&gt;,connectToField:&lt;string&gt;,as:&lt;string&gt;,maxDepth:&lt;number&gt;,depthField:&lt;string&gt;,restrictSearchWithMatch:&lt;document&gt;}}</li>
 		</ul>
 	</li>
 </ol>
