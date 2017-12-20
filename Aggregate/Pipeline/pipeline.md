@@ -3,7 +3,7 @@
 <ol>
 	<li>
 		<ul>
-			<li>$collStats:查询collection状态</li>
+			<li><em>$collStats</em>:查询collection状态</li>
 			<li>{$collStats:{latencyStats:{histograms:<boolean>},storageStats:{}}}</li>
 		</ul>
 	</li>
